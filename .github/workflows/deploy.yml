@@ -153,12 +153,6 @@ jobs:
       #     name: dist
       
       - uses: actions/checkout@v4
-        with:
-          repository: ${{ env.SOURCE_REPO }}
-          token: ${{ secrets.GH_PAT }} # `GH_PAT` is a secret that contains your PAT
-          fetch-depth: 0
-          lfs: true
-          submodules: recursive
           
       - name: Restore cached Build Artifacts
         id: cache-primes-restore
@@ -171,11 +165,6 @@ jobs:
       - name: Move assets to root
         run: mv assets/release.zip release.zip
         
-      - name: Debug files
-        run: |
-          pwd
-          ls -R
-          
       - name: Prepare standalone PM2 config
         run: cp pm2/ecosystem.config.js ecosystem.config.js
 
