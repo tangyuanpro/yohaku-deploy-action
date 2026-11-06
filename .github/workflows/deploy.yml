@@ -203,16 +203,6 @@ jobs:
           script: |
             set -e
             source $HOME/.bashrc
-            
-            echo "当前用户：$(whoami)"
-            echo "HOME：$HOME"
-            source "$HOME/.bashrc"
-            echo "当前 PATH：$PATH"
-            echo "PM2 路径："
-            command -v pm2 || echo "PM2 NOT FOUND"
-            echo "PM2 实际文件："
-            ls -l "$HOME/.npm-global/bin/pm2"
-            
             basedir=$HOME/yohaku
             workdir=$basedir/${{ github.run_number }}
             mkdir -p $workdir
